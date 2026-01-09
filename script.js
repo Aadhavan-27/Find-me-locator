@@ -1,3 +1,6 @@
+let latitude = null;
+let longitude = null;
+
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -9,16 +12,23 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-};
+  latitude = position.coords.latitude;
+  longitude = position.coords.longitude;
+
+  x.innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+}
 
 
 const buttontomap = document.getElementById('map_dir');
 const linktomapcopy = 'https://www.google.co.in/maps/@22.377462,69.8336127,267m/data=!3m1!1e3'
-const reallink = `https://www.google.co.in/maps/@${position.coords.latitude},${position.coords.longitude},270m/data=!3m1!1e3`
-function open(){
-  window.open(reallink)
-}
+
+buttontomap.addEventListener('click', function () {
+  if (latitude && longitude) {
+    const reallink = `https://www.google.co.in/maps/@${latitude},${longitude},270m/data=!3m1!1e3`;
+    window.open(reallink, "_blank");
+  } else {
+    alert("Click Get Location first!");
+  }
+});
 
 
