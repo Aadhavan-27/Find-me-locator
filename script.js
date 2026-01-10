@@ -23,11 +23,11 @@ const buttontomap = document.getElementById('map_dir');
 const linktomapcopy = 'https://www.google.co.in/maps/@22.377462,69.8336127,267m/data=!3m1!1e3'
 
 buttontomap.addEventListener('click', function () {
-  if (latitude && longitude) {
-    const reallink = `https://www.google.co.in/maps/@${latitude},${longitude},270m/data=!3m1!1e3`;
+  if (latitude !== null && longitude !== null) {
+    const reallink = `https://www.google.com/maps?q=${latitude},${longitude}`;
     window.open(reallink, "_blank");
   } else {
-    alert("Click Get Location first!");
+    alert("Please allow location access first.");
   }
 });
 
