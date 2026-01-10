@@ -25,7 +25,7 @@ function errorHandler() {
 
 buttontomap.addEventListener("click", function () {
   if (latitude !== null && longitude !== null) {
-    const mapURL = `https://www.google.com/maps?q=${latitude},${longitude}`;
+    const mapURL = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
     window.open(mapURL, "_blank");
   } else {
     alert("Click Get Location first!");
